@@ -90,8 +90,10 @@ public class Methods {
 		System.out.print("What do you want to name your new file: ");
 		try {
 			file = directory.resolve(scanner.nextLine());
+			if (!file.equals(directory)) {
 			Files.createFile(file, (FileAttribute<?>[])new FileAttribute[0]);
-			System.out.println(file.getFileName()+ " has been create");	
+			System.out.println(file.getFileName()+ " has been created.");
+			} else System.err.println("\nYou cannot create a file with no name.\n");
 		}catch (FileAlreadyExistsException e) {
 				System.err.println("\nThe file already exists.\n");
 		} catch (IOException e) {
@@ -110,7 +112,10 @@ public class Methods {
 		} catch (java.nio.file.NoSuchFileException e) {
 			System.err.println("\nThe file cannot be deleted as there is no file with this name.\n");
 		
-		} catch (IOException e) {
+		} catch (java.nio.file.DirectoryNotEmptyException e) {
+			System.err.println("\nYou cannot delete a file with no name.\n");
+		
+	    } catch (IOException e) {
 			System.err.println("\nThe file exists but it can't be deleted for some other reason.\n");
 			e.printStackTrace();
 		} 
@@ -123,10 +128,12 @@ public class Methods {
 		   System.out.print("Enter the name of the file you want to read: ");
 		   file = directory.resolve(scanner.nextLine());
            Scanner readScanner = new Scanner(file);
+           if(!file.equals(directory)) {
            System.out.println("The data stored in file <" + file.getFileName() + "> is as follows.");
            while (readScanner.hasNextLine()) {
                System.out.println(readScanner.nextLine());
-           }
+           } 
+		   } else System.err.println("\nYou cannot read from a file with no name.\n");
            readScanner.close();
         }
         catch (java.nio.file.NoSuchFileException e) {
