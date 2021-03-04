@@ -37,7 +37,7 @@ public class MyServlet extends HttpServlet {
                 if(!rst.isBeforeFirst()) {
                 	out.println("I'm sorry but your query didn't return any results as there are no products with an ID of " + id +".");
                 }else {
-                out.println("=============================================================================================================");
+                out.println("=============================================================================================================<br>");
                 out.println("<b>| Product ID | Product Name | Product Weight | Food Type | </b><br>");
                 while (rst.next()) {
                         out.println("----------- " + rst.getInt("id") + " ----------- " 
@@ -45,7 +45,7 @@ public class MyServlet extends HttpServlet {
                         + rst.getString("weight")+ " ----------- " 
                         + rst.getString("food_type"));
                 }
-                out.println("=============================================================================================================");
+                out.println("<br>=============================================================================================================");
                 out.println("</body></html>");
                 }
                 stmt.close();
