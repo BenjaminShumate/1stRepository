@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>AddProduct</title>
+<title>Phase2HibernateProject</title>
 </head>
 <body>
 <h2>Welcome to the add product JSP now using Hibernate!</h2>
