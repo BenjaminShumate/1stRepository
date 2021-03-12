@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+ 
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/phaseend2</property>
+        <property name="hibernate.connection.username">ben</property>
+        <property name="hibernate.connection.password">SimplePassword</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+         <property name="hibernate.hbm2ddl.auto">update</property>
+         
+         <!--  note use the below in order to create the database for the first submital. -->
+        <!-- <property name="hibernate.hbm2ddl.auto">create-drop</property> -->
+        
+        <property name="current_session_contect_class">thread</property>
+        
+  
+        <mapping class="com.example.User"/>
+    </session-factory>
+ 
+</hibernate-configuration>
