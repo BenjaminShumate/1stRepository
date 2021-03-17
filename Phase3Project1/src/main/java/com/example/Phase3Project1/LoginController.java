@@ -1,39 +1,44 @@
 package com.example.Phase3Project1;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
+
 import org.springframework.stereotype.Controller;
 
 @Controller
-@SessionAttributes("name")
 public class LoginController {
-
+	
     @Autowired
     VerifyService service;
+    
+    Logger logger = LoggerFactory.getLogger(LoginController.class);
+   
 
-    @RequestMapping(value="/login", method = RequestMethod.GET)
-    public String showLoginPage(ModelMap model){
-        return "index";
+    @PostMapping(value="/getuser") //@GetMapping for Get servlet variant.
+    public String showWelcomePage(ModelMap model, @RequestParam String id){
+    	
+    	DAO.intId = service.convertInt(id);
+    	
+    	if(DAO.intId == 0) {
+    		model.put("errorMessage", "You did not enter an integer, try again");
+    		return "index";
+    	}
+    	
+    	User user= service.getUser(DAO.intId);
+    	
+    	if(user==null) {
+    		model.put("errorMessage", "There is no user associated with id: " + id);
+    		return "index";
+    	}
+    	
+    	logger.info("Tentative change for user <" + user.getUsername() + "> with password <" + user.getPassword() + "> and id <" + DAO.intId + ">");
+		model.put("username", user.getUsername());
+    	model.put("password", user.getPassword());
+    	model.put("id", DAO.intId);
+        return "edit";
     }
-
-    @RequestMapping(value="/login", method = RequestMethod.POST)
-    public String showWelcomePage(ModelMap model, @RequestParam String name, @RequestParam String password){
-
-        boolean isValidUser = service.isValidUser(name, password);
-
-        if (!isValidUser) {
-            model.put("errorMessage", "Invalid Credentials");
-            return "index";
-        }
-
-        model.put("name", name);
-        model.put("password", password);
-
-        return "welcome";
-    }
-
 }

@@ -11,10 +11,11 @@ public class User {
 		
 		@Id
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
-		private int userId;
+		private int id;
 		private String username;
 		private String password;
 		
+		//The constructors may be irrelevant
 		public User() {
 			super();
 		}
@@ -38,7 +39,13 @@ public class User {
 			this.password = password;
 		}
 		public int getUserId() {
-			return userId;
+			return id;
 		}
+
+		@Override
+		public String toString() {
+			return "User [id=" + id + ", username=" + username + ", password=" + password + "]";
+		}
+		
 
 }
