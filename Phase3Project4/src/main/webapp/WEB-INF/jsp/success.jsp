@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Success page JSP and the Endpoint</title>
+<title>Success page JSP and the Endpoint</title> 
 </head>
 <body>
 <h1>Success!</h1>
-<p>Your username has been changed to: ${newUsername} and your password has been changed to: ${newPassword}.</p>
-<p>Please make sure to record these changes in a secure location.</p>
+<p>The id associated with first name: ${fname} is: ${id}.</p>
+<p>Don't share this id with anyone other than your immediate supervisor.</p>
 </body> 
 </html>

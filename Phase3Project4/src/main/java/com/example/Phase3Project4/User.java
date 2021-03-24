@@ -1,4 +1,4 @@
-package com.example.Phase3Project1;
+package com.example.Phase3Project4;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +14,7 @@ public class User {
 	private int id;
 	private String username;
 	private String password;
+	private String fname;
 		
 		//The constructors may be irrelevant
 		public User() {
@@ -40,6 +41,12 @@ public class User {
 		}
 		public int getUserId() {
 			return id;
+		}
+		public String getFName() {
+			return fname;
+		}
+		public void setFName(String name) {
+			this.fname = name;
 		}
 
 		@Override

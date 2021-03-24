@@ -8,12 +8,12 @@
 </head>
 <body>
 <h1><font color="red">${errorMessage}</font></h1>
-<h2>Welcome to the User Id Retrieval Menu</h2>
-<p>Please enter an id for the user to be retrieved. </p>
+<p>Please enter your first name. </p>
  <form action="getuser" method="post">
-  <label for="label1">User ID: </label><br>
-  <input type="text" id="label1" name="id"><br>
-  <input type="submit" value="Submit">
+  <label for="label1">First name: </label><br>
+  <input type="text" id="label1" name="fname"><br>
+  <input type="submit" value="Submit"><br>
+  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 </form>
 </body>
 </html>

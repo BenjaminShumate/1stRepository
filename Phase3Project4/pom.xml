@@ -11,8 +11,8 @@
 	<groupId>com.example</groupId>
 	<artifactId>Phase3Project1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Phase3Project1</name>
-	<description>TestingSpringBoot</description>
+	<name>Phase3Project4</name>
+	<description>Null</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -25,7 +25,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
