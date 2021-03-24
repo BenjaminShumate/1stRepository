@@ -15,5 +15,6 @@
   <input type="submit" value="Submit"><br>
   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 </form>
+<a href="logout">Click here to logout</a>
 </body>
 </html>
