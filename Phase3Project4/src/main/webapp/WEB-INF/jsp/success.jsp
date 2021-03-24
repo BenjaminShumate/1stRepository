@@ -10,5 +10,6 @@
 <h1>Success!</h1>
 <p>The id associated with first name: ${fname} is: ${id}.</p>
 <p>Don't share this id with anyone other than your immediate supervisor.</p>
+<a href="logout">Click here to logout</a>
 </body> 
 </html>
