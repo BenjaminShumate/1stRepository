@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Vendors</title>
+    <link href="/CSS/main.css" rel="stylesheet">
+    <script src="/JS/common_table.js"></script>
+
+</head>
+<body onload="CreateTableFromJSON()">
+    <p id="showData"></p>
+    
+    <H3>Add New Deal</H3>
+    <p>A finance team member will update the project cost within 5 work days.</p>
+    <p  id="newData"> 
+        <label>Client Name</label><input type="text" id="clientNameInput" /><br />
+        <label>Project Name</label><input type="text" id="projectNameInput" /><br />
+        <label>Project Manager</label><input type="text" id="projectManagerInput" /><br />
+    </p>
+    <input type="button" onclick="AddNewDeal()" value="Save" />
+
+    <br><br><a href="product_manager.html">Product Manager Menu</a>
+    
+    <script>
+        function getInputValue(){
+            // Selecting the input element and get its value 
+            var inputVal = document.getElementById("projectNameInput").value;
+            
+            // Displaying the value
+            alert(inputVal);
+        }
+    </script>
+    
+</body>

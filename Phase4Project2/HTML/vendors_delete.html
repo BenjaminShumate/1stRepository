@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Vendors</title>
+    <link href="/CSS/main.css" rel="stylesheet">
+    <script src="/JS/common_table.js"></script>
+
+</head>
+<body onload="CreateTableFromJSON()">
+    <p id="showData"></p>
+    
+    <H3>Delete an Existing Deal</H3>
+    <p id="newData"> 
+        <label>Deal Id</label><input type="number" id="dealIdInput" /><br />
+    </p>
+    <input type="button" onclick="deleteDeal()" value="Save" />
+    
+    <br><br><a href="product_manager.html">Product Manager Menu</a>
+
+    <script>
+        function getInputValue(){
+            // Selecting the input element and get its value 
+            var inputVal = document.getElementById("currentDealId").value;
+            // Displaying the value
+            alert(inputVal);
+        }
+    </script>
+    
+</body>
