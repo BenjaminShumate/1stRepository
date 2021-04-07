@@ -7,8 +7,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 
 import com.web.store.music_store.model.AlbumGenre;
 import com.web.store.music_store.service.AlbumGenreService;
@@ -23,30 +25,35 @@ public class AlbumGenreController {
 	public String createAlbum(ModelMap model, @RequestParam String name, @RequestParam String artist, @RequestParam String price, 
 			@RequestParam Date release_date, @RequestParam String genre_name) throws ParseException {
 		service.create(new AlbumGenre(name, artist, price, release_date, genre_name));
-		readTable(model);
 		model.put("message", "Album has been added");
-		return "menu";
+		return "redirect:/readadmin";
 	}
 	
-	@PostMapping(value="/read")
-	public String readTable(ModelMap model) throws ParseException {
+	@GetMapping(value="/readadmin")
+	public String readTableAdmin(ModelMap model) throws ParseException {
 		model.put("albums", service.read());
-		return "menu";
+		return "adminlist";
+	}
+	
+	@GetMapping(value="/readuser")
+	public String readTableUser(ModelMap model) throws ParseException {
+		model.put("albums", service.read());
+		return "products";
 	}
 	
 	@PostMapping(value="/update")
 	public String updateAlbum(ModelMap model, @RequestParam int id, @RequestParam String name, @RequestParam String artist, @RequestParam String price, 
 			@RequestParam Date release_date, @RequestParam String genre_name) throws ParseException {
-		model.put("message", service.update(id, name, artist, price, release_date, genre_name));
-		readTable(model);
-		return "menu";
+		service.update(id, name, artist, price, release_date, genre_name);
+		model.put("message", "Album has been updated");
+		return "redirect:/readadmin";
 	}
 	
 	@PostMapping(value="/delete")
 	public String deleteAlbum(ModelMap model, @RequestParam int id) throws ParseException {
-		model.put("message", service.delete(id));
-		readTable(model);
-		return "menu";
+		service.delete(id);
+		model.put("message", "The album has been deleted");
+		return "redirect:/readadmin";
 	}
 	
 	@PostMapping(value="/search")
@@ -56,9 +63,14 @@ public class AlbumGenreController {
 			System.out.println(x.toString());
 		}
 		model.put("albums", service.search(column, value));
-		return "search";
+		return "products";
 	}
 	
-	
+	@GetMapping("/edit")
+    public String showEditPage(ModelMap model, @RequestParam int id){ 
+      AlbumGenre album= service.find(id);
+    	model.addAttribute("album",album);
+    	return "edit";
+    }
 	
 }
