@@ -3,12 +3,15 @@ package com.web.store.music_store.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Album {
+public class AlbumGenre {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
 	private String name;
@@ -19,20 +22,19 @@ public class Album {
 	
 	private Date release_date;
 	
-	private int genre_id;
+	private String genre_name;
 
-	public Album() {
+	public AlbumGenre() {
 		super();
 	}
 	
-	public Album(int id, String name, String artist, String price, Date release_date, int genre_id) {
+	public AlbumGenre(String name, String artist, String price, Date release_date, String genre_name) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.artist = artist;
 		this.price = price;
 		this.release_date = release_date;
-		this.genre_id = genre_id;
+		this.genre_name = genre_name;
 	}
 
 	public int getId() {
@@ -75,18 +77,18 @@ public class Album {
 		this.release_date = release_date;
 	}
 
-	public int getGenre_id() {
-		return genre_id;
+	public String getGenre_name() {
+		return genre_name;
 	}
 
-	public void setGenre_id(int genre_id) {
-		this.genre_id = genre_id;
+	public void setGenre_name(String genre_name) {
+		this.genre_name = genre_name;
 	}
 
 	@Override
 	public String toString() {
 		return "Album [id=" + id + ", name=" + name + ", artist=" + artist + ", price=" + price + ", release_date="
-				+ release_date + ", genre_id=" + genre_id + "]";
+				+ release_date + ", genre_name=" + genre_name + "]";
 	}
 	
 	
