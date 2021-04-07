@@ -1,7 +1,7 @@
 package com.web.store.music_store.service;
 
 import java.text.ParseException;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,18 +25,28 @@ public class AlbumGenreService {
 		return repo.findAll();
 	}
 	
-	public void update(int id, String name, String artist, String price, Date release_date, String genre_name) {
-		AlbumGenre album = repo.findById(id).get();
-		album.setName(genre_name);
-		album.setArtist(artist);
-		album.setPrice(price);
-		album.setRelease_date(release_date);
-		album.setGenre_name(genre_name);
-		repo.save(album);
+	public String update(int id, String name, String artist, String price, Date release_date, String genre_name) {
+		try {
+			AlbumGenre album = repo.findById(id).get();
+			album.setName(name);
+			album.setArtist(artist);
+			album.setPrice(price);
+			album.setRelease_date(release_date);
+			album.setGenre_name(genre_name);
+			repo.save(album);
+			return "The album has been updated";
+		} catch(java.util.NoSuchElementException e) {
+			return "You can't modify a nonexistent album";
+		}
 	}
 	
-	public void delete(int id) {
+	public String delete(int id) {
+		try {
 		repo.delete(repo.findById(id).get());
+		return "The table has been deleted";
+		} catch(java.util.NoSuchElementException e) {
+			return "You can't delete a nonexistent table";
+		}
 	}
 	
 	public List<AlbumGenre> search(String column, String value) throws ParseException {

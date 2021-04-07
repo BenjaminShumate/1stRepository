@@ -1,6 +1,6 @@
 package com.web.store.music_store.model;
 
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,17 +13,12 @@ public class AlbumGenre {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	
 	private String name;
-	
-	private String artist;
-	
-	private String price;
-	
-	private Date release_date;
-	
+	private String artist;	
+	private String price;	
+	private Date release_date;	
 	private String genre_name;
-
+	
 	public AlbumGenre() {
 		super();
 	}
