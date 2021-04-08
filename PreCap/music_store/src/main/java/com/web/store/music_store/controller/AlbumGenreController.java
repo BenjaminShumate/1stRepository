@@ -73,4 +73,11 @@ public class AlbumGenreController {
     	return "edit";
     }
 	
+	@GetMapping("/details")
+    public String showDetailsPage(ModelMap model, @RequestParam int id){ 
+      AlbumGenre album= service.find(id);
+    	model.put("album",album);
+    	return "details";
+    }
+	
 }

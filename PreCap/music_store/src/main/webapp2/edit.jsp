@@ -7,34 +7,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
 <title>Edit Form</title>
-<style>
-  .bg-cover{
-    min-height: 110vh;
-  }
-
-  .title
-  {
-      padding-top: 50px;
-    padding-bottom: 50px;
-    color: white;
-    
-  }
-
-</style>
 </head>
 <body>
-  <div style="background: url(images/backround2.jpg)" class="page-holder bg-cover">
- <div align="center" class=title>
+ <div align="center">
 <h2>Edit Album</h2>
 <h3>Please fill in the information</h3>
-<p>Note: Information is pre-filled with the existing album info</p>
 <form:form method="post" action="/update" modelAttribute = "album">
   <form:hidden path="id"/>
     <form:label path="name">Album Name</form:label><br>
@@ -67,7 +45,6 @@
 </form>
 
 
-</div>
 </div>
 </body>
 </html>

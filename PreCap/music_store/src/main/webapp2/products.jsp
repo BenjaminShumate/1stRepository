@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Admin</title>
+<title>Search Our Products</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -15,59 +15,47 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   
 <style>
-  .bg-cover{
-      min-height: 200vh;
-    }
 table, th, td {
   border: 1px solid black;
 }
-  .container-fluid
-  {
-    
-    border-top:1px solid rgb(0, 0, 0);
-    border-bottom:1px solid rgb(0, 0, 0);
-   width: 1200px;
-    border-left:1px solid rgb(0, 0, 0) ;
-    border-right:1px solid rgb(0, 0, 0) ;
-    background-color: rgb(185, 185, 185);
-  }
-  
-    .col
-  {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    border-left:1px solid rgb(0, 0, 0) ;
-    border-right:1px solid rgb(0, 0, 0) ;
-    
-  }
-  .table
-  {
-    padding-bottom: 50px;
-    
-    
-  }
-  .addform
-  {
-    padding-top: 30px;
-    padding-bottom: 30px; 
-    color:white  
-  }
-
-  .title
+     .container-fluid
     {
-        padding-top: 50px;
       
-      color: white;
+      border-top:1px solid rgb(0, 0, 0);
+      border-bottom:1px solid rgb(0, 0, 0);
+     width: 1200px;
+      
       
     }
-    .navbar{
-  background: #000;
-}
+    
+      .col
+    {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-left:1px solid rgb(0, 0, 0) ;
+      border-right:1px solid rgb(0, 0, 0) ;
+      
+    }
+    .table
+    {
+        
+      padding-bottom: 50px;
+      
+      
+    }
+    .title
+    {
+        padding-top: 50px;
+      padding-bottom: 50px;
+      
+      
+    }
+    
 </style>
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-expand-sm navbar-dark">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <!-- Brand -->
       <a class="navbar-brand" href="#">
         <img src="images/whiteGuitar.jpg" alt="Logo" style="width:60px;">
@@ -81,7 +69,9 @@ table, th, td {
         <li class="nav-item">
           <a class="nav-link" href="/readuser">Products</a>
         </li>
-        
+        <li class="nav-item">
+            <a class="nav-link" href="">About</a>
+          </li>
        </ul>
        <ul class="navbar-nav ml-auto">
         <li class="nav-item">
@@ -90,53 +80,74 @@ table, th, td {
         <li class="nav-item">
           <a class="nav-link" href="">Register</a>
         </li>
-      
+        <li class="nav-item">
+          <a class="nav-link" href="">Your Cart</a>
+        </li>
        </ul>
     </nav>
   </header>
  
-  <div style="background: url(images/backround2.jpg)" class="page-holder bg-cover">
-  <div align="center" class=title>
-<h2>Admin Page</h2>
-<p>If you would like to add a new album, use the form below.</p>
-<p>You can edit or delete in the generated table of albums</p>
-</div>
 
-
-
-<div class="addform" align="center">
-    <h3>Add a Product</h3>
-    <form action="/create" method="post">
-     
-        <label for="name">Album Name</label><br /><input type="text" id="name" name="name" required/><br />
+   
+   
+   
+   
+  
+ 
+     <div align="center" class="title">
+        <h2>Our Available Albums</h2>
+        <p>Please use the search bars if you want to find something specific</p>
+        <a href="/readuser">
+          <input type="submit" value="Display All"/>
+         </a><br>   
+      </div>
+   
+    <div class="container-fluid" align="center">
+        <div class="row">
+          
+          <div class="col">
+              
+            
+    <form action="/search" method="post">
       
-        <label for="artist">Artist</label><br /><input type="text" id="artist" name="artist" required/><br />
-     
-        <label for="price">Price</label><br /><input type="number" min=".01" step=".01" id="price" name="price" required/><br />
-      
-        <label for= "release_date">Release Date</label><br /><input type="date" id="release_date" name="release_date" required/><br />
-      
-        <label for="genre_name">Genre</label><br /><input type="text" id="genre_name" name="genre_name" required/><br />
-        <h6> </h6>
-  <input type="submit" value="Add" />
+        <label for="value">Search by Album</label><br /><input type="text" id="value" name="value" required/>
+        <input type="hidden" id="column" name="column" value="name">
+  
+  <input type="submit" value="Search" />
 </form>
-</div> 
-
-
-
+          </div>
+          <div class="col">
+              
+            
+            <form action="/search" method="post">
+              
+                <label for="value">Search by Artist</label><br /><input type="text" id="value" name="value" required/>
+                <input type="hidden" id="column" name="column" value="artist">
+                
+                
+          
+          <input type="submit" value="Search" />
+        </form>
+    </div>
+          <div class="col">
+              
+           
+            <form action="/search" method="post">
+              
+                <label for="value">Search by Genre</label><br /><input type="text" id="value" name="value" required/>
+                <input type="hidden" id="column" name="column" value="genre_name">
+          
+          <input type="submit" value="Search" />
+        </form>
+    </div>
+        </div>
+      </div>
  
-  
-  
-<h6><font color="green">${message}</font></h6>
-    
-   
-   
- 
 
     
 
 
-
+</div>
 <div class="table">
 <div class="container-fluid" align="center">
   <div class="row">
@@ -147,7 +158,7 @@ table, th, td {
     <div class="col"><h5>Price</h5></div>
     <div class="col"><h5>Release Date</h5></div>
     <div class="col"><h5>Genre</h5></div>
-    <div class="col"><h5>Admin</h5></div>
+    <div class="col"><h5>Buy Now</h5></div>
   </div>
 </div>
 
@@ -164,19 +175,10 @@ table, th, td {
     <div class="col">${albums.release_date}</div>
     <div class="col">${albums.genre_name}</div>
     <div class="col">
-      <form action="/edit" method="get">
-
-        <input type="hidden" id="id" name="id" value="${albums.id}">
-      
-      <input type="submit" value="Edit" />
-      </form>
-      <h6> </h6>
-       <form action="/delete" method="post">
-
-  <input type="hidden" id="id" name="id" value="${albums.id}">
-
-<input type="submit" value="Delete" />
-</form>
+      <a href="">
+        <input type="submit" value="Add to Cart"/>
+       </a><br>
+       
     </div>
   
   </div>
@@ -184,7 +186,6 @@ table, th, td {
 </c:forEach>
 </div>
   
-
-</div>
+    
 </body>
 </html>

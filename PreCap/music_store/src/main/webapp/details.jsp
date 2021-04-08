@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Homepage</title>
+<title>Search Our Products</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -15,39 +15,46 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   
 <style>
- .bg-cover{
-      min-height: 100vh;
+    .bg-cover{
+      min-height: 110vh;
     }
+table, th, td {
+  border: 1px solid black;
+}
+     .container-fluid
+    {
       
+      
+     width: 900px;
+     background-color: rgb(185, 185, 185);
+      
+    }
     
+      .col
+    {
+      padding-top: 20px;
+      padding-bottom: 20px;
+     
+      
+    }
+    .table
+    {
+        
+      padding-bottom: 50px;
+      
+      
+    }
     .title
     {
         padding-top: 50px;
       padding-bottom: 50px;
-      color: aliceblue;
+      color: white;
       
     }
-    .carousel-inner img {
-    width: 100%;
-    height: 100%;
-    
-  }
-  .carousel
-  .carousel-item img {
-    height: 400px;
-    width: 800px;
-    object-fit: cover;
-}
-.navbar{
+    .navbar{
   background: #000;
 }
-.cta {
-    
-   
-    padding-top: 50px;
- 
-   } 
-   .btn {
+.btn {
   border: black;  
    background-color: red;
     color: rgb(255, 255, 255);
@@ -71,7 +78,7 @@
         <li class="nav-item">
           <a class="nav-link" href="/readuser">Products</a>
         </li>
-       
+        
        </ul>
        <ul class="navbar-nav ml-auto">
         <li class="nav-item">
@@ -87,60 +94,69 @@
     </nav>
   </header>
  
- <div style="background: url(images/backround2.jpg)" class="page-holder bg-cover">
 
    
+   
+   
+   
+  <div style="background: url(images/backround2.jpg)" class="page-holder bg-cover">
  
-  <div align="center" class="title">
-    <h2>Welcome to the Music Store!</h2>
-    <p>Purchase top albums at the lowest price!</p>
-       
-  </div>
-
-  <div id="music" class="carousel slide" style="width: 800px; height:400px;margin: 0 auto" data-ride="carousel">
-
-    <!-- Indicators -->
-    <ul class="carousel-indicators">
-      <li data-target="#music" data-slide-to="0" class="active"></li>
-      <li data-target="#music" data-slide-to="1"></li>
-      <li data-target="#music" data-slide-to="2"></li>
-    </ul>
-    
-    <!-- The slideshow -->
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="images/concert1.jpg" alt="crt1">
+     <div align="center" class="title">
+        <h2>Album: ${album.name}</h2>
+        <p></p>
+        <a href="/readuser">
+          <input type="submit" value="Back"/>
+         </a><br>   
       </div>
-      <div class="carousel-item">
-        <img src="images/concert2.jpg" alt="crt2">
-      </div>
-      <div class="carousel-item">
-        <img src="images/band.jpg" alt="band">
-      </div>
-    </div>
-    
-    <!-- Left and right controls -->
-    <a class="carousel-control-prev" href="#music" data-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </a>
-    <a class="carousel-control-next" href="#music" data-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </a>
-  </div>
-
-  <div class=cta align="center">
-    <a href='/readuser'><buttontype="button" class="btn btn-primary btn-lg">Buy Now!</button></a>
-    </div>
-
-
-  </div>
    
-   
-  
+    
+     
+ 
+
+    
 
 
+
+<div class="table">
+
+
+
+
+<div class="container-fluid" >
+  <div class="row">
+    <div class="col" align="center">
+      <img src="images/album.jpg" alt="album" width="400" height="400">
+    </div>
+    <div class="col">
+    <h1>${album.name}</h1><br />
+    <h5>Artist: ${album.artist}</h5><br />
+    
+    <h5>Released: ${album.release_date}</h5><br />
+    <h5>Genre: ${album.genre_name}</h5><br />
+    <h1></h1><br />
+    <h1></h1><br />
+   <h5>Buy for a low price of:</h5> <h3>$${album.price}</h3>
+</div> 
+    </div>
   
-  
+  </div>
+
+
+<div class="container-fluid" align="center">
+    <div class="row">
+      
+      <div class="col">
+        <div class=cta align="center">
+            <a href=''><buttontype="button" class="btn btn-primary btn-lg">Add to Cart</button></a>
+            </div>
+         <h6> </h6>
+         
+      </div>
+    
+    </div>
+  </div>
+</div>
+</div> 
     
 </body>
 </html>

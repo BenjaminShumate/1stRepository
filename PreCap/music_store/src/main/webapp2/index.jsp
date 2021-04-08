@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Homepage</title>
+<title>Search Our Products</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -15,16 +15,14 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   
 <style>
- .bg-cover{
-      min-height: 100vh;
-    }
+
       
     
     .title
     {
         padding-top: 50px;
       padding-bottom: 50px;
-      color: aliceblue;
+      
       
     }
     .carousel-inner img {
@@ -38,26 +36,12 @@
     width: 800px;
     object-fit: cover;
 }
-.navbar{
-  background: #000;
-}
-.cta {
     
-   
-    padding-top: 50px;
- 
-   } 
-   .btn {
-  border: black;  
-   background-color: red;
-    color: rgb(255, 255, 255);
- 
-   } 
 </style>
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-expand-sm navbar-dark">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <!-- Brand -->
       <a class="navbar-brand" href="#">
         <img src="images/whiteGuitar.jpg" alt="Logo" style="width:60px;">
@@ -71,7 +55,9 @@
         <li class="nav-item">
           <a class="nav-link" href="/readuser">Products</a>
         </li>
-       
+        <li class="nav-item">
+            <a class="nav-link" href="">About</a>
+          </li>
        </ul>
        <ul class="navbar-nav ml-auto">
         <li class="nav-item">
@@ -86,11 +72,6 @@
        </ul>
     </nav>
   </header>
- 
- <div style="background: url(images/backround2.jpg)" class="page-holder bg-cover">
-
-   
- 
   <div align="center" class="title">
     <h2>Welcome to the Music Store!</h2>
     <p>Purchase top albums at the lowest price!</p>
@@ -128,12 +109,8 @@
     </a>
   </div>
 
-  <div class=cta align="center">
-    <a href='/readuser'><buttontype="button" class="btn btn-primary btn-lg">Buy Now!</button></a>
-    </div>
-
-
-  </div>
+   
+   
    
    
   

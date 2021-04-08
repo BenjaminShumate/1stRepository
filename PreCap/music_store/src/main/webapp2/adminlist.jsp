@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Admin</title>
+<title>Search Our Products</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -15,9 +15,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   
 <style>
-  .bg-cover{
-      min-height: 200vh;
-    }
 table, th, td {
   border: 1px solid black;
 }
@@ -29,7 +26,6 @@ table, th, td {
    width: 1200px;
     border-left:1px solid rgb(0, 0, 0) ;
     border-right:1px solid rgb(0, 0, 0) ;
-    background-color: rgb(185, 185, 185);
   }
   
     .col
@@ -49,25 +45,13 @@ table, th, td {
   .addform
   {
     padding-top: 30px;
-    padding-bottom: 30px; 
-    color:white  
+    padding-bottom: 30px;   
   }
-
-  .title
-    {
-        padding-top: 50px;
-      
-      color: white;
-      
-    }
-    .navbar{
-  background: #000;
-}
 </style>
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-expand-sm navbar-dark">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <!-- Brand -->
       <a class="navbar-brand" href="#">
         <img src="images/whiteGuitar.jpg" alt="Logo" style="width:60px;">
@@ -79,9 +63,11 @@ table, th, td {
           <a class="nav-link" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/readuser">Products</a>
+          <a class="nav-link" href="/search">Products</a>
         </li>
-        
+        <li class="nav-item">
+            <a class="nav-link" href="">About</a>
+          </li>
        </ul>
        <ul class="navbar-nav ml-auto">
         <li class="nav-item">
@@ -94,13 +80,11 @@ table, th, td {
        </ul>
     </nav>
   </header>
- 
-  <div style="background: url(images/backround2.jpg)" class="page-holder bg-cover">
-  <div align="center" class=title>
+  <div align="center">
 <h2>Admin Page</h2>
 <p>If you would like to add a new album, use the form below.</p>
 <p>You can edit or delete in the generated table of albums</p>
-</div>
+
 
 
 
@@ -126,7 +110,7 @@ table, th, td {
 
  
   
-  
+  </div>
 <h6><font color="green">${message}</font></h6>
     
    
@@ -136,7 +120,7 @@ table, th, td {
     
 
 
-
+</div>
 <div class="table">
 <div class="container-fluid" align="center">
   <div class="row">
@@ -185,6 +169,6 @@ table, th, td {
 </div>
   
 
-</div>
+  
 </body>
 </html>
